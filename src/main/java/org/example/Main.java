@@ -1,11 +1,9 @@
 package org.example;
 
-import org.example.model.*;
 import org.example.model.Character;
 import org.example.storage.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
