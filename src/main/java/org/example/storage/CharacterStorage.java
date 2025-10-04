@@ -1,19 +1,25 @@
 package org.example.storage;
 
-import java.net.MalformedURLException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.model.Character;
+
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CharacterStorage {
-    public void loadUrl() {
-        try {
-            URL urlRickAndMortyApi = new URL("https://rickandmortyapi.com/api/character");
-            // usar urlRickAndMortyApi...
-        } catch (MalformedURLException e) {
-            // manejar el error
-            e.printStackTrace();
-        }
+    public static  List<Character> loadUrl() throws IOException {
+
+        ObjectMapper om = new ObjectMapper();
+        ApiResults characters = om.readValue(new URL("https://rickandmortyapi.com/api/character"), ApiResults.class);
+        return characters.results;
+
+
     }
 }
+
+
 
 
